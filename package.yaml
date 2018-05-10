@@ -44,22 +44,22 @@ when:
     cpp-options: -DENABLE_TRACING=1
 
 dependencies:
-  - base                        >= 4.9 && < 5
-  - ansi-wl-pprint
-  - bytestring
-  - containers
-  - data-fix
-  - deepseq                     >= 1.4.2 && < 1.5
-  - exceptions
-  - filepath
-  - hashing
-  - mtl
-  - optparse-applicative
-  - template-haskell
-  - text
-  - time
-  - transformers
-  - unordered-containers        >= 0.2.9 && < 0.3
+  - base                 >= 4.9    && < 5
+  - ansi-wl-pprint       >= 0.6.8  && < 0.7
+  - bytestring           >= 0.10.8 && < 0.11
+  - containers           >= 0.5.10 && < 0.6
+  - data-fix             >= 0.2.0  && < 0.3
+  - deepseq              >= 1.4.2  && < 1.5
+  - exceptions           >= 0.8.3  && < 0.9
+  - filepath             >= 1.4.1  && < 1.5
+  - hashing              >= 0.1.0  && < 0.2
+  - mtl                  >= 2.2.2  && < 2.3
+  - optparse-applicative >= 0.14.2 && < 0.15
+  - template-haskell     >= 2.12.0 && < 2.13
+  - text                 >= 1.2.3  && < 1.3
+  - time                 >= 1.8.0  && < 1.9
+  - transformers         >= 0.5.2  && < 0.6
+  - unordered-containers >= 0.2.9  && < 0.3
 
 when:
   - condition: "os(linux) && impl(ghc < 8.2)"
@@ -69,42 +69,41 @@ when:
 when:
   - condition: "!impl(ghcjs)"
     dependencies:
-      - base16-bytestring
-      - cryptohash-md5
-      - cryptohash-sha1
-      - cryptohash-sha256
-      - cryptohash-sha512
-      - serialise
+      - base16-bytestring    >= 0.1.1    && < 0.2
+      - cryptohash-md5       >= 0.11.100 && < 0.12
+      - cryptohash-sha1      >= 0.11.100 && < 0.12
+      - cryptohash-sha256    >= 0.11.101 && < 0.12
+      - cryptohash-sha512    >= 0.11.100 && < 0.12
+      - serialise            >= 0.2.0    && < 0.3
 
 library:
   source-dirs: src
   dependencies:
-    - aeson
-    - ansi-wl-pprint
-    - array                     >= 0.4   && < 0.6
-    - binary
-    - deriving-compat           >= 0.3   && < 0.5
-    - directory
-    - http-types
-    - http-client
-    - http-client-tls
-    - lens-family
-    - lens-family-core
-    - lens-family-th
-    - logict
-    - megaparsec                >= 6.0   && < 6.6
-    - monadlist
-    - process
-    - regex-tdfa
-    - regex-tdfa-text
-    - scientific
-    - semigroups                >= 0.18  && < 0.19
-    - split
-    - syb
-    - these
-    - unix
-    - vector
-    - xml
+    - aeson                >= 1.2.4 && < 1.3
+    - array                >= 0.4   && < 0.6
+    - binary               >= 0.8.5 && < 0.9
+    - deriving-compat      >= 0.3   && < 0.5
+    - directory            >= 1.3.0 && < 1.4
+    - http-client          >= 0.5.12 && < 0.6
+    - http-client-tls      >= 0.3.5 && < 0.4
+    - http-types           >= 0.12.1 && < 0.13
+    - lens-family          >= 1.2.2 && < 1.3
+    - lens-family-core     >= 1.2.2 && < 1.3
+    - lens-family-th       >= 0.5.0 && < 0.6
+    - logict               >= 0.6.0 && < 0.7
+    - megaparsec           >= 6.0   && < 6.6
+    - monadlist            >= 0.0.2 && < 0.1
+    - process              >= 1.6.1 && < 1.7
+    - regex-tdfa           >= 1.2.3 && < 1.3
+    - regex-tdfa-text      >= 1.0.0 && < 1.1
+    - scientific           >= 0.3.5 && < 0.4
+    - semigroups           >= 0.18  && < 0.19
+    - split                >= 0.2.3 && < 0.3
+    - syb                  >= 0.7 && < 0.8
+    - these                >= 0.7.4 && < 0.8
+    - unix                 >= 2.7.2 && < 2.8
+    - vector               >= 0.12.0 && < 0.13
+    - xml                  >= 1.3.14 && < 1.4
   when:
     - condition: impl(ghc < 8.4.0) && !flag(profiling)
       dependencies:
@@ -127,11 +126,12 @@ executables:
     source-dirs: main
     main: Main.hs
     dependencies:
-      - hnix
       - aeson
-      - pretty-show
-      - repline
-      - haskeline
+      - haskeline            >= 0.7.4 && < 0.8
+      - hnix
+      - pretty-show          >= 1.6.16 && < 1.7
+      - repline              >= 0.1.7 && < 0.2
+
     when:
       - condition: "impl(ghcjs)"
         then:
@@ -156,7 +156,7 @@ tests:
       - tasty-th
       - unix
       - QuickCheck
-      - quickcheck-instances
+      - quickcheck-instances >= 0.3.17
       - generic-random
       - Diff
       - megaparsec
