@@ -9,3 +9,4 @@ dist-newstyle
 /.history
 /nix/
 /nix-test-eval*
+.stack-work
